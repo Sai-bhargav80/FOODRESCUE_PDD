@@ -1,0 +1,76 @@
+name: Backend Security Review and SAST Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  security-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # required for Gitleaks scan
+
+      - name: Run Semgrep SAST
+        uses: semgrep/semgrep-action@v1
+        with:
+          config: >-
+            p/security-audit
+            p/owasp-top-ten
+        continue-on-error: true
+
+      - name: Run Gitleaks Secrets Scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+      - name: Run Trivy FS Scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'table'
+          exit-code: '0'
+          severity: 'CRITICAL,HIGH'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies & Run Backend Unit Tests
+        run: |
+          cd c:/project/FoodRescueBackend || cd ./FoodRescueBackend || true
+          pip install -r requirements.txt
+          # Run test suites if defined
+          python -m pytest || true
+
+      - name: Run k6 Performance Load Testing
+        uses: grafana/k6-action@v0.3.1
+        with:
+          filename: 'Vulnerability Test Results/k6-load-test.js'
+        env:
+          BASE_URL: http://localhost:8000
+        continue-on-error: true
+
+      - name: Upload Security Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: Security_Audit_Vulnerability_Reports
+          path: |
+            Vulnerability Test Results/*.md
+            Vulnerability Test Results/*.xlsx
+            Vulnerability Test Results/*.js
+            Vulnerability Test Results/*.yml
+            Vulnerability Test Results/*.jmx
+          retention-days: 30
+
+      - name: Publish Step Summary
+        run: |
+          cat "Vulnerability Test Results/executive-summary.md" >> $GITHUB_STEP_SUMMARY

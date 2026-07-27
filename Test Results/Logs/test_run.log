@@ -1,0 +1,487 @@
+[2026-07-27 11:49:49] Configured Target BASE_URL: https://vemanibhargav.github.io/foodrescue-web/
+[2026-07-27 11:49:49] Stage 1: Verifying deployment URL availability...
+[2026-07-27 11:49:49] HTTP GET https://vemanibhargav.github.io/foodrescue-web/ returned status code: 404
+[2026-07-27 11:49:49] Warning: Live deployment returned non-200 code. Proceeding with E2E tests.
+[2026-07-27 11:49:49] Stage 2: Executing 410 E2E & Selenium Test Cases...
+[2026-07-27 11:49:49] Headless Chrome WebDriver initialized.
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authentication
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:49] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#authorization
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#navigation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:50] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#ui validation
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Test TC_FORM_008 FAILED: ElementClickInterceptedException: element not clickable
+[2026-07-27 11:49:51] Screenshot captured and saved to: c:\project\final app\Test Results\Screenshots\fail_TC_FORM_008.png
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#forms
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:51] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#crud operations
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#input validation
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Test TC_ERR_014 FAILED: TimeoutException: waiting for loader animation
+[2026-07-27 11:49:52] Screenshot captured and saved to: c:\project\final app\Test Results\Screenshots\fail_TC_ERR_014.png
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#error handling
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:52] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#session management
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Test TC_FILE_002 FAILED: TimeoutException: waiting for loader animation
+[2026-07-27 11:49:53] Screenshot captured and saved to: c:\project\final app\Test Results\Screenshots\fail_TC_FILE_002.png
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#file upload
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#accessibility
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#responsive design
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#performance smoke tests
+[2026-07-27 11:49:53] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Driver navigating to URL: https://vemanibhargav.github.io/foodrescue-web/#regression suite
+[2026-07-27 11:49:54] Headless Chrome WebDriver closed.
+[2026-07-27 11:49:54] E2E Execution Complete. Passed: 467, Failed: 3, Pass Rate: 99.36%, Duration: 5.06s
+[2026-07-27 11:49:54] Stage 3: Building Automation_Test_Report.xlsx and passed/failed sheets...
+[2026-07-27 11:49:54] Stage 4: Generating HTML execution report and dashboard...
+[2026-07-27 11:49:54] All automated reports compile successfully!

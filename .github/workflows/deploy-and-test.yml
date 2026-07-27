@@ -1,0 +1,109 @@
+name: Deploy and E2E Test Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: './package-lock.json'
+
+      - name: Install Frontend Dependencies
+        run: npm ci
+
+      - name: Build Next.js Static Export
+        run: npm run build
+        env:
+          NEXT_PUBLIC_API_URL: https://mock-api.foodrescue.org
+
+      - name: Upload Build Artifact for Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './out' # Next.js static output directory
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  verify-and-test:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    env:
+      BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python Dependencies
+        run: |
+          pip install selenium openpyxl requests
+
+      - name: Verify Live Deployment URL
+        run: |
+          python -c "
+          import requests
+          url = '${{ env.BASE_URL }}'
+          print(f'Checking {url}...')
+          try:
+              res = requests.get(url, timeout=30)
+              print(f'Status Code: {res.status_code}')
+              if res.status_code != 200:
+                  exit(1)
+          except Exception as e:
+              print(f'Error: {e}')
+              exit(1)
+          "
+
+      - name: Install Chrome and Driver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Run Headless Selenium Tests
+        run: |
+          python automation/runners/run_all.py
+        env:
+          BASE_URL: ${{ env.BASE_URL }}
+
+      - name: Upload Test Report Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: E2E_Automation_Reports
+          path: |
+            Test Results/**/*.xlsx
+            Test Results/**/*.html
+            Test Results/**/*.json
+            Test Results/**/*.md
+            Test Results/Screenshots/
+            Test Results/Logs/
+          retention-days: 30
+
+      - name: Publish Summary to Execution Summary
+        if: always()
+        run: |
+          cat "Test Results/Summary/summary.md" >> $GITHUB_STEP_SUMMARY

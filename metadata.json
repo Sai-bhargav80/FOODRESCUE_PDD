@@ -1,0 +1,6 @@
+{
+  "name": "FoodRescue",
+  "description": "Intelligent Food Rescue Ecosystem that connects food donors with volunteers and rescuers to reduce food waste and support communities.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

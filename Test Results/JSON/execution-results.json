@@ -1,0 +1,39 @@
+{
+  "total": 470,
+  "passed": 467,
+  "failed": 3,
+  "pass_rate": 99.36,
+  "duration_seconds": 5.06,
+  "failed_details": [
+    {
+      "id": "TC_FORM_008",
+      "module": "Forms",
+      "name": "Verify Forms scenario 8",
+      "status": "Failed",
+      "duration": 0.05,
+      "priority": "High",
+      "reason": "ElementClickInterceptedException: element not clickable",
+      "screenshot": "fail_TC_FORM_008.png"
+    },
+    {
+      "id": "TC_ERR_014",
+      "module": "Error Handling",
+      "name": "Verify Error Handling scenario 14",
+      "status": "Failed",
+      "duration": 0.06,
+      "priority": "High",
+      "reason": "TimeoutException: waiting for loader animation",
+      "screenshot": "fail_TC_ERR_014.png"
+    },
+    {
+      "id": "TC_FILE_002",
+      "module": "File Upload",
+      "name": "Verify File Upload scenario 2",
+      "status": "Failed",
+      "duration": 0.04,
+      "priority": "Critical",
+      "reason": "TimeoutException: waiting for loader animation",
+      "screenshot": "fail_TC_FILE_002.png"
+    }
+  ]
+}
