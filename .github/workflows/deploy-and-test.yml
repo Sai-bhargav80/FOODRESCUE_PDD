@@ -25,7 +25,7 @@ jobs:
           node-version: 20
 
       - name: Install Frontend Dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build Next.js Static Export
         run: npm run build
