@@ -63,17 +63,21 @@ jobs:
       - name: Verify Live Deployment URL
         run: |
           python -c "
-          import requests
+          import requests, time
           url = '${{ env.BASE_URL }}'
-          print(f'Checking {url}...')
-          try:
-              res = requests.get(url, timeout=30)
-              print(f'Status Code: {res.status_code}')
-              if res.status_code != 200:
-                  exit(1)
-          except Exception as e:
-              print(f'Error: {e}')
-              exit(1)
+          print(f'Verifying live URL: {url}')
+          for i in range(15):
+              try:
+                  res = requests.get(url, timeout=10)
+                  print(f'Attempt {i+1}: Status Code: {res.status_code}')
+                  if res.status_code == 200:
+                      print('Live URL verified successfully!')
+                      exit(0)
+              except Exception as e:
+                  print(f'Attempt {i+1} failed: {e}')
+              time.sleep(10)
+          print('Error: Target URL was not active after 2.5 minutes.')
+          exit(1)
           "
 
       - name: Install Chrome and Driver
