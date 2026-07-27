@@ -31,6 +31,7 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_API_URL: https://mock-api.foodrescue.org
+          NEXT_PUBLIC_BASE_PATH: /FOODRESCUE_PDD
 
       - name: Upload Build Artifact for Pages
         uses: actions/upload-pages-artifact@v3
