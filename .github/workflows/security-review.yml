@@ -46,10 +46,18 @@ jobs:
 
       - name: Install Dependencies & Run Backend Unit Tests
         run: |
-          cd c:/project/FoodRescueBackend || cd ./FoodRescueBackend || true
-          pip install -r requirements.txt
-          # Run test suites if defined
-          python -m pytest || true
+          if [ -d "./FoodRescueBackend" ]; then
+            cd ./FoodRescueBackend
+            if [ -f "requirements.txt" ]; then
+              pip install -r requirements.txt
+            fi
+            python -m pytest || true
+          elif [ -f "requirements.txt" ]; then
+            pip install -r requirements.txt
+            python -m pytest || true
+          else
+            echo "No backend folders or requirements.txt found, skipping."
+          fi
 
       - name: Run k6 Performance Load Testing
         uses: grafana/k6-action@v0.3.1
