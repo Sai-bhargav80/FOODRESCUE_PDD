@@ -15,8 +15,9 @@ except ImportError:
     import openpyxl
     from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 
-# Create directories
-workspace_dir = r"c:\project\final app"
+# Create directories dynamically
+script_dir = os.path.dirname(os.path.abspath(__file__))
+workspace_dir = os.path.abspath(os.path.join(script_dir, "..", ".."))
 results_dir = os.path.join(workspace_dir, "Test Results")
 os.makedirs(os.path.join(results_dir, "Excel"), exist_ok=True)
 os.makedirs(os.path.join(results_dir, "HTML"), exist_ok=True)
