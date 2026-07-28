@@ -15,6 +15,14 @@ export const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const isLandingPage = pathname === '/';
   const showBottomNav = !!user && !isAuthPage && !isLandingPage;
 
+  if (isLandingPage) {
+    return (
+      <div className="min-h-screen bg-[#050914] text-white">
+        {children}
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#02040a] text-dark-100 flex flex-col items-center justify-center p-0 md:py-6">
       {/* Outer 16:9 Mobile Simulator Frame on Desktop */}
