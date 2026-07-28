@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Mail, Lock, User as UserIcon, Phone, ArrowRight, Sparkles, AlertCircle, Eye, EyeOff } from 'lucide-react';
+import { Mail, Lock, User as UserIcon, Phone, ArrowRight, Sparkles, AlertCircle, Eye, EyeOff, Leaf } from 'lucide-react';
 import { authAPI } from '@/lib/api';
 import PlateIntro from '@/components/PlateIntro';
 
