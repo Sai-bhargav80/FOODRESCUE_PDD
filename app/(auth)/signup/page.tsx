@@ -8,6 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Mail, Lock, User as UserIcon, Phone, ArrowRight, Sparkles, AlertCircle, Eye, EyeOff } from 'lucide-react';
 import { authAPI } from '@/lib/api';
+import PlateIntro from '@/components/PlateIntro';
 
 const signupSchema = z.object({
   fullName:    z.string().min(2, 'At least 2 characters'),
@@ -73,7 +74,8 @@ export default function SignupPage() {
 
       {/* Form */}
       <div className="flex-1 px-5 pb-10">
-        <div className="app-card p-6 space-y-4 max-w-sm mx-auto">
+        <PlateIntro>
+          <div className="app-card p-6 space-y-4 max-w-sm mx-auto">
 
           {error && (
             <div className="flex items-center gap-3 p-3 rounded-2xl bg-rose-500/10 border border-rose-500/20 animate-fade-in">
@@ -173,6 +175,7 @@ export default function SignupPage() {
             <Link href="/login" className="text-primary-400 font-semibold hover:text-primary-300 transition">Sign in</Link>
           </p>
         </div>
+        </PlateIntro>
       </div>
     </div>
   );

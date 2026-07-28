@@ -10,6 +10,7 @@ import { Mail, Lock, Eye, EyeOff, ArrowRight, Leaf, AlertCircle, KeyRound, Loade
 import { authAPI } from '@/lib/api';
 import { useAuth } from '@/lib/auth-context';
 import PinInput from '@/components/PinInput';
+import PlateIntro from '@/components/PlateIntro';
 
 const loginSchema = z.object({
   email:    z.string().min(1, 'Email is required').email('Invalid email'),
@@ -174,7 +175,8 @@ export default function LoginPage() {
 
       {/* Form card */}
       <div className="flex-1 px-5 pb-10">
-        <div className="app-card p-6 space-y-5 max-w-sm mx-auto">
+        <PlateIntro>
+          <div className="app-card p-6 space-y-5 max-w-sm mx-auto">
 
           {/* Login mode toggle */}
           {(!isLoading && (loginMode !== 'pin' || pinStep !== 2)) && (
@@ -334,6 +336,7 @@ export default function LoginPage() {
             </Link>
           </p>
         </div>
+        </PlateIntro>
       </div>
     </div>
   );
