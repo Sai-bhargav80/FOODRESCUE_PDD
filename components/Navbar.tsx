@@ -74,7 +74,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 h-14" style={{ background: 'rgba(5,9,20,0.88)', backdropFilter: 'blur(24px)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+      <header className="absolute top-0 left-0 right-0 z-50 h-14" style={{ background: 'rgba(5,9,20,0.88)', backdropFilter: 'blur(24px)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="max-w-2xl mx-auto px-4 h-full flex items-center justify-between">
           {/* Logo */}
           <Link href={user ? '/dashboard' : '/'} className="flex items-center gap-2">

@@ -16,12 +16,15 @@ export const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const showBottomNav = !!user && !isAuthPage && !isLandingPage;
 
   return (
-    <div className="min-h-screen bg-dark-950 text-dark-100">
-      <Navbar />
-      <main className={`pt-14 ${showBottomNav ? 'pb-safe' : ''}`}>
-        {children}
-      </main>
-      {showBottomNav && <BottomNav pathname={pathname} />}
+    <div className="min-h-screen bg-[#02040a] text-dark-100 flex flex-col items-center justify-center p-0 md:py-6">
+      {/* Outer 16:9 Mobile Simulator Frame on Desktop */}
+      <div className="w-full h-screen md:h-[840px] md:w-[472.5px] md:border-[10px] md:border-dark-800 md:rounded-[40px] md:shadow-2xl relative overflow-hidden bg-dark-950 flex flex-col">
+        <Navbar />
+        <main className="flex-1 overflow-y-auto pt-14 pb-safe relative">
+          {children}
+        </main>
+        {showBottomNav && <BottomNav pathname={pathname} />}
+      </div>
       {!showBottomNav && !isAuthPage && <Footer />}
     </div>
   );

@@ -121,7 +121,7 @@ body {
 
 /* ── Bottom Nav ───────────────────────────────────────── */
 .bottom-nav {
-  position: fixed; bottom: 0; left: 0; right: 0;
+  position: absolute; bottom: 0; left: 0; right: 0;
   background: rgba(5,9,20,0.92);
   backdrop-filter: blur(24px);
   border-top: 1px solid rgba(255,255,255,0.06);
