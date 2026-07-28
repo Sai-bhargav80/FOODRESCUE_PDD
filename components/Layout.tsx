@@ -12,16 +12,7 @@ export const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
 
   const isAuthPage = pathname === '/login' || pathname === '/signup' || pathname === '/forgot-password';
-  const isLandingPage = pathname === '/';
-  const showBottomNav = !!user && !isAuthPage && !isLandingPage;
-
-  if (isLandingPage) {
-    return (
-      <div className="min-h-screen bg-[#050914] text-white">
-        {children}
-      </div>
-    );
-  }
+  const showBottomNav = !!user && !isAuthPage;
 
   return (
     <div className="min-h-screen bg-[#050914] text-dark-100 flex flex-col">
