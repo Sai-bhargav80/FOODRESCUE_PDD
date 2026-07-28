@@ -1,0 +1,254 @@
+name: Parallel E2E Test Suite (300+ Cases Each)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  selenium-tests:
+    name: Selenium - Website Tests (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install openpyxl requests
+
+      - name: Run Selenium Tests
+        run: python automation/runners/run_selenium.py
+
+      - name: Upload Selenium Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: selenium-report
+          path: Test Results/Excel/selenium-report.xlsx
+
+  appium-tests:
+    name: Appium - Android Tests (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install openpyxl requests
+
+      - name: Run Appium Tests
+        run: python automation/runners/run_appium.py
+
+      - name: Upload Appium Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: appium-report
+          path: Test Results/Excel/appium-report.xlsx
+
+  unit-tests:
+    name: Unit Tests - API (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install openpyxl requests
+
+      - name: Run Unit Tests
+        run: python automation/runners/run_unit.py
+
+      - name: Upload Unit Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-report
+          path: Test Results/Excel/unit-report.xlsx
+
+  validation-tests:
+    name: Validation Tests (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install openpyxl requests
+
+      - name: Run Validation Tests
+        run: python automation/runners/run_validation.py
+
+      - name: Upload Validation Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-report
+          path: Test Results/Excel/validation-report.xlsx
+
+  deployment-tests:
+    name: Deployment Status (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install openpyxl requests
+
+      - name: Run Deployment Checks
+        run: python automation/runners/run_deployment.py
+
+      - name: Upload Deployment Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: deployment-report
+          path: Test Results/Excel/deployment-report.xlsx
+
+  load-tests:
+    name: Load Testing - Performance (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install openpyxl requests
+
+      - name: Run Load Performance Tests
+        run: python automation/runners/run_load.py
+
+      - name: Upload Load Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: load-report
+          path: Test Results/Excel/load-report.xlsx
+
+  compile-and-deploy:
+    name: Compile Master Report & Deploy
+    needs: [selenium-tests, appium-tests, unit-tests, validation-tests, deployment-tests, load-tests]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Frontend Dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build Next.js Static Export
+        run: npm run build
+        env:
+          NEXT_PUBLIC_API_URL: https://mock-api.foodrescue.org
+          NEXT_PUBLIC_BASE_PATH: /FOODRESCUE_PDD
+
+      - name: Upload Build Artifact for Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './out'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install openpyxl requests
+
+      # Download all 6 sub-reports
+      - name: Download Selenium Report
+        uses: actions/download-artifact@v4
+        with:
+          name: selenium-report
+          path: Test Results/Excel
+
+      - name: Download Appium Report
+        uses: actions/download-artifact@v4
+        with:
+          name: appium-report
+          path: Test Results/Excel
+
+      - name: Download Unit Report
+        uses: actions/download-artifact@v4
+        with:
+          name: unit-report
+          path: Test Results/Excel
+
+      - name: Download Validation Report
+        uses: actions/download-artifact@v4
+        with:
+          name: validation-report
+          path: Test Results/Excel
+
+      - name: Download Deployment Report
+        uses: actions/download-artifact@v4
+        with:
+          name: deployment-report
+          path: Test Results/Excel
+
+      - name: Download Load Report
+        uses: actions/download-artifact@v4
+        with:
+          name: load-report
+          path: Test Results/Excel
+
+      - name: Compile Consolidate Report
+        run: python automation/runners/compile_master.py
+
+      # Upload consolidate reports
+      - name: Upload Master Excel Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Master_Spreadsheet_Report
+          path: Test Results/Excel/master-report.xlsx
+
+      - name: Upload HTML Visual Dashboard
+        uses: actions/upload-artifact@v4
+        with:
+          name: HTML_Test_Report
+          path: Test Results/HTML/execution-report.html
+
+      # Write summary to GITHUB_STEP_SUMMARY
+      - name: Write GitHub Step Summary
+        run: cat "Test Results/Summary/summary.md" >> $GITHUB_STEP_SUMMARY
