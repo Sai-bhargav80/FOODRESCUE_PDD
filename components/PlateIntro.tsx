@@ -143,7 +143,7 @@ export default function PlateIntro({ children }: PlateIntroProps) {
             style={{
               left: charLeft,
               transition: charTransition,
-              animation: isWalking ? 'bob 0.35s infinite ease-in-out' : step === 'FINISHED' ? 'breathe 2s infinite ease-in-out' : 'none'
+              animation: isWalking ? 'bob 0.35s infinite ease-in-out' : (step as string) === 'FINISHED' ? 'breathe 2s infinite ease-in-out' : 'none'
             }}
           >
             {/* Chef Toque (Hat) */}
