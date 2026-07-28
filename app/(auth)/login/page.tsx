@@ -149,194 +149,294 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(160deg, #050914 0%, #0a1628 50%, #050914 100%)' }}>
-
-      {/* 🔧 Debug strip — shows which server the app is hitting */}
-      <div style={{ background: '#0a1628', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '4px 12px', textAlign: 'center' }}>
-        <p style={{ fontSize: '9px', fontFamily: 'monospace', color: '#4b5563', letterSpacing: '0.05em' }}>
+    <div className="min-h-screen flex flex-col lg:flex-row lg:h-screen lg:overflow-hidden bg-[#050914]" style={{ background: 'linear-gradient(160deg, #050914 0%, #0a1628 50%, #050914 100%)' }}>
+      
+      {/* 🔧 Debug strip (hidden in production builds) */}
+      {process.env.NODE_ENV !== 'production' && (
+        <div className="absolute top-2 left-2 z-50 bg-dark-900/90 border border-white/5 px-2 py-0.5 rounded-lg text-[9px] font-mono text-dark-500">
           API → {process.env.NEXT_PUBLIC_API_URL || 'http://172.25.34.84:8000'}
-        </p>
-      </div>
-
-      {/* Top hero section */}
-      {(loginMode !== 'pin' || pinStep !== 2) && (
-        <div className="flex-none pt-16 pb-10 px-6 text-center relative overflow-hidden">
-          {/* Glow orbs */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full opacity-20 blur-3xl" style={{ background: 'radial-gradient(circle, #00e87e, transparent)' }} />
-          <div className="relative z-10">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-primary shadow-glow mx-auto mb-4 flex items-center justify-center">
-              <Leaf className="w-8 h-8 text-dark-950" strokeWidth={2.5} />
-            </div>
-            <h1 className="text-3xl font-black text-white tracking-tight">Welcome back</h1>
-            <p className="text-dark-400 text-sm mt-1">Sign in to continue rescuing food</p>
-          </div>
         </div>
       )}
 
-      {/* Form card */}
-      <div className="flex-1 px-5 pb-10">
-        <PlateIntro>
-          <div className="app-card p-6 space-y-5 max-w-sm mx-auto">
+      {/* LEFT PANEL: Branding & Visual Layout (58% width - Desktop only) */}
+      <div className="hidden lg:flex lg:w-[58%] h-full relative flex-col justify-between p-12 overflow-hidden border-r border-white/5 bg-[#050914] select-none">
+        {/* Ambient Glows */}
+        <div className="absolute top-1/4 left-1/3 w-96 h-96 rounded-full opacity-20 blur-[120px] pointer-events-none" style={{ background: 'radial-gradient(circle, #00e87e, transparent)' }} />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full opacity-10 blur-[100px] pointer-events-none" style={{ background: 'radial-gradient(circle, #f97316, transparent)' }} />
+        
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '24px 24px' }} />
 
-          {/* Login mode toggle */}
-          {(!isLoading && (loginMode !== 'pin' || pinStep !== 2)) && (
-            <div className="flex bg-dark-900/60 p-1.5 rounded-2xl border border-white/5 mb-4">
-              <button
-                type="button"
-                onClick={() => { setLoginMode('password'); setError(''); }}
-                className={`flex-1 py-2 text-xs font-semibold rounded-xl transition cursor-pointer ${
-                  loginMode === 'password'
-                    ? 'bg-gradient-primary text-white shadow-glow'
-                    : 'text-dark-400 hover:text-dark-200'
-                }`}
-              >
-                Password Login
-              </button>
-              <button
-                type="button"
-                onClick={() => { setLoginMode('pin'); setError(''); }}
-                className={`flex-1 py-2 text-xs font-semibold rounded-xl transition cursor-pointer ${
-                  loginMode === 'pin'
-                    ? 'bg-gradient-primary text-white shadow-glow'
-                    : 'text-dark-400 hover:text-dark-200'
-                }`}
-              >
-                Security PIN Login
-              </button>
+        {/* Header Branding */}
+        <div className="flex items-center gap-3 relative z-10">
+          <div className="w-10 h-10 rounded-2xl bg-gradient-primary shadow-glow flex items-center justify-center">
+            <Leaf className="w-5 h-5 text-dark-950" strokeWidth={2.5} />
+          </div>
+          <span className="font-black text-xl tracking-tight text-white">FoodRescue<span className="text-[#f97316]">Map</span></span>
+        </div>
+
+        {/* Core Taglines */}
+        <div className="my-auto space-y-8 relative z-10 max-w-lg text-left">
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/20 text-[10px] font-bold uppercase tracking-wider text-primary-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse" />
+              Join the movement
             </div>
-          )}
+            <h1 className="text-[52px] font-black leading-[1.1] text-white tracking-tight">
+              From Waste to <span className="bg-gradient-to-r from-primary-400 to-[#f97316] bg-clip-text text-transparent">Plates</span>
+            </h1>
+            <p className="text-xl text-dark-300 font-semibold">— Just 1 Tap Away</p>
+          </div>
+          
+          <p className="text-dark-400 text-sm leading-relaxed">
+            Connect weddings, corporate offices, and local restaurants directly to NGOs and volunteers nearby. Zero food waste, zero hunger, zero cost.
+          </p>
 
-          {/* Error */}
-          {(loginMode !== 'pin' || pinStep !== 2) && error && (
-            <div className="flex items-center gap-3 p-3 rounded-2xl bg-rose-500/10 border border-rose-500/20 animate-fade-in">
-              <AlertCircle className="w-4 h-4 text-rose-400 flex-shrink-0" />
-              <p className="text-rose-300 text-xs font-medium">{error}</p>
-            </div>
-          )}
-
-          {/* Success */}
-          {(loginMode !== 'pin' || pinStep !== 2) && success && (
-            <div className="flex items-center gap-3 p-3 rounded-2xl bg-primary-500/10 border border-primary-500/20 animate-fade-in">
-              <span className="text-primary-400 text-sm">✓</span>
-              <p className="text-primary-300 text-xs font-medium">{success}</p>
-            </div>
-          )}
-
-          {/* Password Login Form */}
-          {loginMode === 'password' && (
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-              {/* Email */}
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Email</label>
-                <div className="relative">
-                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
-                  <input
-                    type="email"
-                    placeholder="you@example.com"
-                    className="app-input"
-                    disabled={isLoading}
-                    {...register('email')}
-                  />
-                </div>
-                {errors.email && <p className="text-rose-400 text-[11px] font-mono">{errors.email.message}</p>}
+          {/* Feature stat chips */}
+          <div className="grid grid-cols-2 gap-4 pt-4">
+            <div className="p-4 bg-dark-900/60 border border-white/5 rounded-2xl flex items-center gap-3">
+              <span className="text-2xl">🎉</span>
+              <div>
+                <p className="text-white font-bold text-sm">50,000+</p>
+                <p className="text-[10px] text-dark-500 font-mono uppercase tracking-wider">Meals Rescued</p>
               </div>
+            </div>
+            <div className="p-4 bg-dark-900/60 border border-white/5 rounded-2xl flex items-center gap-3">
+              <span className="text-2xl">🗺️</span>
+              <div>
+                <p className="text-white font-bold text-sm">Live Map</p>
+                <p className="text-[10px] text-dark-500 font-mono uppercase tracking-wider">Realtime Pins</p>
+              </div>
+            </div>
+            <div className="p-4 bg-dark-900/60 border border-white/5 rounded-2xl flex items-center gap-3">
+              <span className="text-2xl">🌿</span>
+              <div>
+                <p className="text-white font-bold text-sm">CO2 Savings</p>
+                <p className="text-[10px] text-dark-500 font-mono uppercase tracking-wider">Carbon Offset</p>
+              </div>
+            </div>
+            <div className="p-4 bg-dark-900/60 border border-white/5 rounded-2xl flex items-center gap-3">
+              <span className="text-2xl">❤️</span>
+              <div>
+                <p className="text-white font-bold text-sm">100% Free</p>
+                <p className="text-[10px] text-dark-500 font-mono uppercase tracking-wider">For Everyone</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-              {/* Password */}
-              <div className="space-y-1.5">
-                <div className="flex justify-between items-center">
-                  <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Password</label>
-                  <Link href="/forgot-password" className="text-[11px] text-primary-400 font-semibold hover:text-primary-300 transition">Forgot?</Link>
-                </div>
-                <div className="relative">
-                  <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder="••••••••"
-                    className="app-input pr-12"
-                    disabled={isLoading}
-                    {...register('password')}
-                  />
-                  <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-dark-500 hover:text-dark-300 transition cursor-pointer">
-                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+        {/* Footer */}
+        <p className="text-xs text-dark-600 font-mono relative z-10">© 2026 FoodRescueMap · Sustainable Communities</p>
+      </div>
+
+      {/* RIGHT PANEL: Form Card Column (42% width on Desktop, full-bleed on Mobile) */}
+      <div className="flex-1 lg:w-[42%] lg:h-full lg:overflow-y-auto flex flex-col justify-center px-5 py-12 md:py-16 relative">
+        
+        {/* Glow backdrop (Tablet layout only) */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full opacity-10 blur-3xl pointer-events-none md:block hidden lg:hidden" style={{ background: 'radial-gradient(circle, #00e87e, transparent)' }} />
+
+        {/* Welcome block (Hides only on PIN verification view) */}
+        {(loginMode !== 'pin' || pinStep !== 2) && (
+          <div className="text-center mb-8 lg:mb-6">
+            {/* Header logo (Hidden on desktop panel since it has the large left panel branding) */}
+            <div className="lg:hidden">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-primary shadow-glow mx-auto mb-4 flex items-center justify-center">
+                <Leaf className="w-7 h-7 text-dark-950" strokeWidth={2.5} />
+              </div>
+            </div>
+            <h1 className="text-3xl lg:text-[36px] font-black text-white tracking-tight">Welcome back</h1>
+            <p className="text-dark-400 text-sm mt-1">Sign in to continue rescuing food</p>
+          </div>
+        )}
+
+        {/* Form elements with PlateIntro wrapper */}
+        <div className="w-full max-w-sm md:max-w-[420px] mx-auto relative z-10">
+          <PlateIntro>
+            <div className="app-card p-6 space-y-5">
+
+              {/* Login mode toggle */}
+              {(!isLoading && (loginMode !== 'pin' || pinStep !== 2)) && (
+                <div className="flex bg-dark-900/60 p-1.5 rounded-2xl border border-white/5 mb-4">
+                  <button
+                    type="button"
+                    onClick={() => { setLoginMode('password'); setError(''); }}
+                    className={`flex-1 py-2 text-xs font-semibold rounded-xl transition cursor-pointer ${
+                      loginMode === 'password'
+                        ? 'bg-gradient-primary text-white shadow-glow'
+                        : 'text-dark-400 hover:text-dark-200'
+                    }`}
+                  >
+                    Password Login
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => { setLoginMode('pin'); setError(''); }}
+                    className={`flex-1 py-2 text-xs font-semibold rounded-xl transition cursor-pointer ${
+                      loginMode === 'pin'
+                        ? 'bg-gradient-primary text-white shadow-glow'
+                        : 'text-dark-400 hover:text-dark-200'
+                    }`}
+                  >
+                    Security PIN Login
                   </button>
                 </div>
-                {errors.password && <p className="text-rose-400 text-[11px] font-mono">{errors.password.message}</p>}
-              </div>
+              )}
 
-              {/* Submit */}
-              <button type="submit" disabled={isLoading} className="btn-primary mt-2">
-                {isLoading ? (
-                  <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-dark-950/30 border-t-dark-950 rounded-full animate-spin" />Signing in...</span>
-                ) : (
-                  <span className="flex items-center gap-2">Sign In <ArrowRight className="w-4 h-4" /></span>
-                )}
-              </button>
-            </form>
-          )}
-
-          {/* PIN Login Form */}
-          {loginMode === 'pin' && (
-            <div className="space-y-4">
-              {/* Email Address */}
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Email Address</label>
-                <div className="relative">
-                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
-                  <input
-                    type="email"
-                    placeholder="you@example.com"
-                    className="app-input"
-                    value={pinEmailInput}
-                    onChange={(e) => {
-                      setPinEmailInput(e.target.value);
-                      setEmailForPin(e.target.value);
-                    }}
-                    disabled={isLoading}
-                  />
+              {/* Error */}
+              {(loginMode !== 'pin' || pinStep !== 2) && error && (
+                <div className="flex items-center gap-3 p-3 rounded-2xl bg-rose-500/10 border border-rose-500/20 animate-fade-in">
+                  <AlertCircle className="w-4 h-4 text-rose-400 flex-shrink-0" />
+                  <p className="text-rose-300 text-xs font-medium">{error}</p>
                 </div>
+              )}
+
+              {/* Success */}
+              {(loginMode !== 'pin' || pinStep !== 2) && success && (
+                <div className="flex items-center gap-3 p-3 rounded-2xl bg-primary-500/10 border border-primary-500/20 animate-fade-in">
+                  <span className="text-primary-400 text-sm">✓</span>
+                  <p className="text-primary-300 text-xs font-medium">{success}</p>
+                </div>
+              )}
+
+              {/* Password Login Form */}
+              {loginMode === 'password' && (
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                  {/* Email */}
+                  <div className="space-y-1.5">
+                    <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Email</label>
+                    <div className="relative">
+                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
+                      <input
+                        type="email"
+                        placeholder="you@example.com"
+                        className="app-input"
+                        disabled={isLoading}
+                        {...register('email')}
+                      />
+                    </div>
+                    {errors.email && <p className="text-rose-400 text-[11px] font-mono">{errors.email.message}</p>}
+                  </div>
+
+                  {/* Password */}
+                  <div className="space-y-1.5">
+                    <div className="flex justify-between items-center">
+                      <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Password</label>
+                      <Link href="/forgot-password" className="text-[11px] text-primary-400 font-semibold hover:text-primary-300 transition">Forgot?</Link>
+                    </div>
+                    <div className="relative">
+                      <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
+                      <input
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder="••••••••"
+                        className="app-input pr-10"
+                        disabled={isLoading}
+                        {...register('password')}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowPassword(p => !p)}
+                        className="absolute right-3.5 top-1/2 -translate-y-1/2 text-dark-500 hover:text-white transition cursor-pointer"
+                      >
+                        {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                      </button>
+                    </div>
+                    {errors.password && <p className="text-rose-400 text-[11px] font-mono">{errors.password.message}</p>}
+                  </div>
+
+                  <button type="submit" disabled={isLoading} className="btn-primary mt-2">
+                    {isLoading ? (
+                      <span className="flex items-center gap-2"><Loader className="w-4 h-4 animate-spin text-dark-950" />Signing in...</span>
+                    ) : (
+                      <span className="flex items-center gap-2">Sign In <ArrowRight className="w-4 h-4" /></span>
+                    )}
+                  </button>
+                </form>
+              )}
+
+              {/* Security PIN Login Form */}
+              {loginMode === 'pin' && (
+                <div className="space-y-4">
+                  {pinStep === 1 ? (
+                    <div className="space-y-4">
+                      <div className="space-y-1.5">
+                        <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Email</label>
+                        <div className="relative">
+                          <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
+                          <input
+                            type="email"
+                            placeholder="you@example.com"
+                            className="app-input"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                          />
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={handleNextPinStep}
+                        className="btn-primary"
+                      >
+                        <span>Continue <ArrowRight className="w-4 h-4" /></span>
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="space-y-4 animate-fade-in">
+                      <div className="text-center space-y-2">
+                        <div className="w-12 h-12 bg-primary-500/10 border border-primary-500/20 rounded-2xl mx-auto flex items-center justify-center mb-1">
+                          <KeyRound className="w-5 h-5 text-primary-400" />
+                        </div>
+                        <h3 className="text-lg font-bold text-white">Enter Security PIN</h3>
+                        <p className="text-xs text-dark-400">Sent authentication query for <span className="text-white font-semibold font-mono">{email}</span></p>
+                        <button
+                          onClick={() => setPinStep(1)}
+                          className="text-xs text-primary-400 hover:text-primary-300 font-semibold"
+                        >
+                          Change Email
+                        </button>
+                      </div>
+
+                      <div className="py-2">
+                        <PinInput
+                          length={4}
+                          title=""
+                          subtitle=""
+                          isLoading={isLoading}
+                          error={error}
+                          success={success}
+                          onComplete={handleVerifyPinAndLogin}
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Demo hint */}
+              <div className="p-3 rounded-2xl bg-white/3 border border-white/5 text-center">
+                <p className="text-[10px] text-dark-500 font-mono">DEMO CREDENTIALS</p>
+                {loginMode === 'password' ? (
+                  <>
+                    <p className="text-[11px] text-dark-400 mt-0.5">donor@ | ngo@ | volunteer@ (test.com)</p>
+                    <p className="text-[11px] text-dark-500 font-mono mt-0.5">Password: {DEMO_PASSWORD}</p>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-[11px] text-dark-400 mt-0.5">donor@ | ngo@ | volunteer@ (test.com)</p>
+                    <p className="text-[11px] text-dark-500 font-mono mt-0.5">Security PIN: 1234</p>
+                  </>
+                )}
               </div>
 
-              {/* Security PIN Split-boxes */}
-              <div className="space-y-2">
-                <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest block text-center mb-1">Security PIN</label>
-                <PinInput
-                  length={4}
-                  title=""
-                  subtitle=""
-                  isLoading={isLoading}
-                  error={error}
-                  success={success}
-                  onComplete={handleVerifyPinAndLogin}
-                />
-              </div>
+              {/* Sign up link */}
+              <p className="text-center text-dark-500 text-sm pt-2 border-t border-white/5">
+                New here?{' '}
+                <Link href="/signup" className="text-primary-400 font-semibold hover:text-primary-300 transition">
+                  Create account
+                </Link>
+              </p>
             </div>
-          )}
-
-          {/* Demo hint */}
-          <div className="p-3 rounded-2xl bg-white/3 border border-white/5 text-center">
-            <p className="text-[10px] text-dark-500 font-mono">DEMO CREDENTIALS</p>
-            {loginMode === 'password' ? (
-              <>
-                <p className="text-[11px] text-dark-400 mt-0.5">donor@ | ngo@ | volunteer@ (test.com)</p>
-                <p className="text-[11px] text-dark-500 font-mono mt-0.5">Password: {DEMO_PASSWORD}</p>
-              </>
-            ) : (
-              <>
-                <p className="text-[11px] text-dark-400 mt-0.5">donor@ | ngo@ | volunteer@ (test.com)</p>
-                <p className="text-[11px] text-dark-500 font-mono mt-0.5">Security PIN: 1234</p>
-              </>
-            )}
-          </div>
-
-          {/* Sign up link */}
-          <p className="text-center text-dark-500 text-sm pt-2 border-t border-white/5">
-            New here?{' '}
-            <Link href="/signup" className="text-primary-400 font-semibold hover:text-primary-300 transition">
-              Create account
-            </Link>
-          </p>
+          </PlateIntro>
         </div>
-        </PlateIntro>
       </div>
     </div>
   );

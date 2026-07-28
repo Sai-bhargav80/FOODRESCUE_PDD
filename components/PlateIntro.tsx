@@ -130,7 +130,7 @@ export default function PlateIntro({ children }: PlateIntroProps) {
   const showCard = step === 'CROSSFADE' || step === 'TADA' || step === 'FINISHED';
 
   return (
-    <div className="w-full max-w-sm mx-auto relative flex flex-col items-center">
+    <div className="w-full max-w-[460px] mx-auto relative flex flex-col items-center">
       {/* 🔮 Animation Stage (Always rendered above/around the card) */}
       {step !== 'FINISHED' && (
         <div className="w-full h-[220px] relative overflow-hidden bg-transparent z-20">
