@@ -366,14 +366,14 @@ export default function LoginPage() {
                             type="email"
                             placeholder="you@example.com"
                             className="app-input"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={pinEmailInput}
+                            onChange={(e) => setPinEmailInput(e.target.value)}
                           />
                         </div>
                       </div>
                       <button
                         type="button"
-                        onClick={handleNextPinStep}
+                        onClick={() => handleProceedToPin(pinEmailInput)}
                         className="btn-primary"
                       >
                         <span>Continue <ArrowRight className="w-4 h-4" /></span>
@@ -386,7 +386,7 @@ export default function LoginPage() {
                           <KeyRound className="w-5 h-5 text-primary-400" />
                         </div>
                         <h3 className="text-lg font-bold text-white">Enter Security PIN</h3>
-                        <p className="text-xs text-dark-400">Sent authentication query for <span className="text-white font-semibold font-mono">{email}</span></p>
+                        <p className="text-xs text-dark-400">Sent authentication query for <span className="text-white font-semibold font-mono">{emailForPin}</span></p>
                         <button
                           onClick={() => setPinStep(1)}
                           className="text-xs text-primary-400 hover:text-primary-300 font-semibold"
