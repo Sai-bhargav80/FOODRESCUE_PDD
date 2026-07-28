@@ -51,11 +51,11 @@ module.exports = {
       },
       backgroundImage: {
         'gradient-primary':   'linear-gradient(135deg, #00e87e 0%, #00964f 100%)',
-        'gradient-accent':    'linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%)',
+        'gradient-accent':    'linear-gradient(135deg, #f97316 0%, #f59e0b 100%)',
         'gradient-danger':    'linear-gradient(135deg, #fb7185 0%, #f43f5e 100%)',
         'gradient-amber':     'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
-        'gradient-mesh':      'radial-gradient(at 20% 30%, #00e87e22 0, transparent 50%), radial-gradient(at 80% 70%, #0ea5e922 0, transparent 50%)',
-        'card-glow':          'linear-gradient(135deg, rgba(0,232,126,0.08) 0%, rgba(14,165,233,0.04) 100%)',
+        'gradient-mesh':      'radial-gradient(at 20% 30%, #00e87e22 0, transparent 50%), radial-gradient(at 80% 70%, #f9731622 0, transparent 50%)',
+        'card-glow':          'linear-gradient(135deg, rgba(0,232,126,0.08) 0%, rgba(249,115,22,0.04) 100%)',
         'tab-active':         'linear-gradient(to top, rgba(0,232,126,0.15), transparent)',
       },
       boxShadow: {
