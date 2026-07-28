@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Leaf, Bell, X, CheckCheck, AlertCircle } from 'lucide-react';
+import { Leaf, Bell, X, CheckCheck, AlertCircle, LogOut } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { notificationAPI } from '@/lib/api';
 
@@ -22,7 +22,7 @@ const NOTIF_ICON: Record<string, string> = {
 };
 
 export const Navbar = () => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const pathname = usePathname();
   const [showPanel, setShowPanel]         = useState(false);
   const [notifications, setNotifications] = useState<Notification[]>([]);
@@ -74,7 +74,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <header className="absolute top-0 left-0 right-0 z-50 h-14" style={{ background: 'rgba(5,9,20,0.88)', backdropFilter: 'blur(24px)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+      <header className="fixed top-0 left-0 right-0 z-50 h-14" style={{ background: 'rgba(5,9,20,0.88)', backdropFilter: 'blur(24px)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="max-w-2xl mx-auto px-4 h-full flex items-center justify-between">
           {/* Logo */}
           <Link href={user ? '/dashboard' : '/'} className="flex items-center gap-2">
@@ -103,6 +103,21 @@ export const Navbar = () => {
                     {unread > 9 ? '9+' : unread}
                   </span>
                 )}
+              </button>
+
+              {/* Logout button */}
+              <button
+                onClick={() => {
+                  if (typeof window !== 'undefined') {
+                    localStorage.removeItem('authToken');
+                    localStorage.removeItem('user');
+                  }
+                  logout();
+                }}
+                className="w-9 h-9 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 hover:bg-red-500/20 transition cursor-pointer ml-1"
+                title="Logout"
+              >
+                <LogOut className="w-4 h-4" />
               </button>
             </div>
           ) : (

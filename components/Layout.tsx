@@ -24,15 +24,12 @@ export const RootLayout = ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <div className="min-h-screen bg-[#02040a] text-dark-100 flex flex-col items-center justify-center p-0 md:py-6">
-      {/* Outer 16:9 Mobile Simulator Frame on Desktop */}
-      <div className="w-full h-screen md:h-[840px] md:w-[472.5px] md:border-[10px] md:border-dark-800 md:rounded-[40px] md:shadow-2xl relative overflow-hidden bg-dark-950 flex flex-col">
-        <Navbar />
-        <main className="flex-1 overflow-y-auto pt-14 pb-safe relative">
-          {children}
-        </main>
-        {showBottomNav && <BottomNav pathname={pathname} />}
-      </div>
+    <div className="min-h-screen bg-[#050914] text-dark-100 flex flex-col">
+      <Navbar />
+      <main className={`flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-20 ${showBottomNav ? 'pb-24 md:pb-12' : 'pb-12'} relative`}>
+        {children}
+      </main>
+      {showBottomNav && <BottomNav pathname={pathname} />}
       {!showBottomNav && !isAuthPage && <Footer />}
     </div>
   );
@@ -47,7 +44,7 @@ const tabs = [
 ];
 
 const BottomNav = ({ pathname }: { pathname: string }) => (
-  <nav className="bottom-nav">
+  <nav className="bottom-nav md:hidden">
     <div className="flex items-center justify-around h-16">
       {tabs.map(({ label, href, icon: Icon }) => {
         const active = pathname === href || pathname.startsWith(href + '/');

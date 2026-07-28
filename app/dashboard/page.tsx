@@ -698,76 +698,24 @@ export default function DashboardPage() {
         <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />
       )}
 
-      {/* Top Bar */}
-      <div
-        style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 40,
-          background: 'rgba(5,9,20,0.97)',
-          backdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(255,255,255,0.08)',
-          padding: '12px 20px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ fontSize: 24, lineHeight: 1 }}>🌿</span>
-          <span style={{ color: '#f9fafb', fontWeight: 800, fontSize: 20, letterSpacing: '-0.5px' }}>
-            FoodRescue
-          </span>
-          {isOffline && (
-            <span
-              style={{
-                background: 'rgba(251,146,60,0.15)',
-                border: '1px solid rgba(251,146,60,0.4)',
-                color: '#FB923C',
-                borderRadius: 20,
-                padding: '2px 10px',
-                fontSize: 11,
-                fontWeight: 600,
-                marginLeft: 6,
-              }}
-            >
-              🔴 Backend Offline
-            </span>
-          )}
-        </div>
-        <button
-          onClick={handleLogout}
-          style={{
-            background: 'rgba(248,113,113,0.1)',
-            border: '1px solid rgba(248,113,113,0.25)',
-            borderRadius: 10,
-            padding: '8px 12px',
-            color: '#f87171',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 6,
-            fontSize: 13,
-            fontWeight: 600,
-            transition: 'background 0.2s',
-          }}
-        >
-          <LogOut size={14} />
-          Logout
-        </button>
-      </div>
-
       {/* Scrollable content */}
-      <div style={{ paddingBottom: 80, minHeight: 'calc(100vh - 57px)', overflowX: 'hidden', width: '100%', boxSizing: 'border-box' }}>
+      <div style={{ width: '100%', boxSizing: 'border-box' }}>
         {/* ═══════════════════════════════════ TAB 1: LISTINGS */}
         {activeTab === 'listings' && (
-          <div style={{ padding: '20px 16px 0' }}>
+          <div style={{ padding: '10px 0 0' }}>
             {/* Greeting */}
-            <div style={{ marginBottom: 20 }}>
-              <h1 style={{ color: '#f9fafb', fontWeight: 800, fontSize: 24, marginBottom: 4 }}>
-                Hey {user.fullName?.split(' ')[0] ?? 'there'} 👋
-              </h1>
-              <p style={{ color: '#9ca3af', fontSize: 14 }}>Browse &amp; claim surplus food</p>
+            <div style={{ marginBottom: 20, display: 'flex', alignItems: 'center', justifyContent: 'between', flexWrap: 'wrap', gap: 10 }}>
+              <div>
+                <h1 style={{ color: '#f9fafb', fontWeight: 800, fontSize: 28, marginBottom: 4 }}>
+                  Hey {user.fullName?.split(' ')[0] ?? 'there'} 👋
+                </h1>
+                <p style={{ color: '#9ca3af', fontSize: 15 }}>Browse &amp; claim surplus food</p>
+              </div>
+              {isOffline && (
+                <span className="badge-rose flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-xl border border-rose-500/20 bg-rose-500/10">
+                  ⚠️ Backend Offline (Demo Mode)
+                </span>
+              )}
             </div>
 
             {/* Search + Refresh */}
