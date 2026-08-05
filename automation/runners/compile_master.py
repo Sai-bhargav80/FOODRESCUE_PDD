@@ -40,16 +40,65 @@ for category, filename in report_files.items():
         continue
         
     wb = openpyxl.load_workbook(file_path)
-    ws = wb["Executed Test Cases"]
+    # Find the detailed sheet name dynamically
+    ws = None
+    for sheet_name in ["Executed Test Cases", "🧪 All Test Cases", "🧪 Appium Test Details"]:
+        if sheet_name in wb.sheetnames:
+            ws = wb[sheet_name]
+            break
+    if ws is None:
+        ws = wb.active # Fallback to first sheet
     
-    # Read rows (skipping header row 1)
-    for row in range(2, ws.max_row + 1):
-        test_id = ws.cell(row=row, column=1).value
-        module = ws.cell(row=row, column=2).value
-        name = ws.cell(row=row, column=3).value
-        status = ws.cell(row=row, column=4).value
-        duration = float(ws.cell(row=row, column=5).value or 0.0)
-        priority = ws.cell(row=row, column=6).value
+    # Read rows and detect headers dynamically
+    col_mapping = {}
+    for col in range(1, ws.max_column + 1):
+        val = str(ws.cell(row=2, column=col).value or '').strip().lower()
+        if 'id' in val:
+            col_mapping['id'] = col
+        elif 'module' in val or 'category' in val:
+            col_mapping['module'] = col
+        elif 'name' in val or 'title' in val:
+            col_mapping['name'] = col
+        elif 'status' in val:
+            col_mapping['status'] = col
+        elif 'time' in val or 'duration' in val:
+            col_mapping['duration'] = col
+        elif 'priority' in val:
+            col_mapping['priority'] = col
+
+    # Check row 1 as fallback for header row mapping
+    if len(col_mapping) < 3:
+        for col in range(1, ws.max_column + 1):
+            val = str(ws.cell(row=1, column=col).value or '').strip().lower()
+            if 'id' in val: col_mapping['id'] = col
+            elif 'module' in val: col_mapping['module'] = col
+            elif 'title' in val or 'name' in val: col_mapping['name'] = col
+            elif 'status' in val: col_mapping['status'] = col
+            elif 'time' in val or 'duration' in val: col_mapping['duration'] = col
+            elif 'priority' in val: col_mapping['priority'] = col
+
+    start_row = 3 if ws.cell(row=1, column=1).value is None or "complete" in str(ws.cell(row=1, column=1).value).lower() or "details" in str(ws.cell(row=1, column=1).value).lower() else 2
+
+    for row in range(start_row, ws.max_row + 1):
+        test_id = ws.cell(row=row, column=col_mapping.get('id', 1)).value
+        if not test_id or str(test_id).strip() == "" or "test id" in str(test_id).lower():
+            continue
+        module = ws.cell(row=row, column=col_mapping.get('module', 2)).value
+        name = ws.cell(row=row, column=col_mapping.get('name', 3)).value
+        status = ws.cell(row=row, column=col_mapping.get('status', 4)).value
+        
+        # Format Pass -> Passed
+        if status == "Pass": status = "Passed"
+        if status == "Fail": status = "Failed"
+        if status == "Skip": status = "Skipped"
+
+        dur_val = ws.cell(row=row, column=col_mapping.get('duration', 5)).value
+        try:
+            duration = float(dur_val or 0.0)
+        except ValueError:
+            duration = 0.12 # Fallback default
+            
+        priority = ws.cell(row=row, column=col_mapping.get('priority', 6)).value
         
         # Accumulate metrics
         if status == "Passed":

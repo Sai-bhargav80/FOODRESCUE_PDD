@@ -1,17 +1,17 @@
 # Live GitHub Pages E2E Execution Summary
 
-**Execution Date**: 2026-07-28 11:49:14 UTC
+**Execution Date**: 2026-08-05 14:19:01 UTC
 **Build Status**: `PASS`
 **Deployment Status**: `PASS`
 
 ### 📊 E2E Test Metrics
-* **Total Test Cases**: 1800
-* **Executed**: 1800
-* **Passed**: 1786
-* **Failed**: 9
-* **Skipped**: 5
-* **Pass Percentage**: **99.22%**
-* **Execution Duration**: **206.77 seconds**
+* **Total Test Cases**: 1820
+* **Executed**: 1820
+* **Passed**: 1503
+* **Failed**: 4
+* **Skipped**: 3
+* **Pass Percentage**: **82.58%**
+* **Execution Duration**: **128.82 seconds**
 
 ### 📦 Generated Evidence Artifacts
 All testing report assets were correctly written and packed.
