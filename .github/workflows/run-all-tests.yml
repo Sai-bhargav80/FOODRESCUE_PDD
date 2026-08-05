@@ -1,0 +1,96 @@
+name: Run All E2E Test Suites
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  run-tests:
+    name: Execute E2E, Unit, Mobile, and Load Suites
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python Dependencies
+        run: pip install openpyxl requests
+
+      - name: Install Selenium Test Dependencies
+        run: |
+          cd selenium-tests
+          npm install
+
+      - name: Install Appium Test Dependencies
+        run: |
+          cd appium-tests
+          npm install
+
+      - name: Run Selenium Tests (310 Cases)
+        run: python automation/runners/run_selenium.py
+
+      - name: Run Appium Tests (310 Cases)
+        run: python automation/runners/run_appium.py
+
+      - name: Run Unit Tests
+        run: python automation/runners/run_unit.py
+
+      - name: Run Load Performance Tests
+        run: python automation/runners/run_load.py
+
+      - name: Run Validation Checks
+        run: python automation/runners/run_validation.py
+
+      - name: Run Deployment Status Checks
+        run: python automation/runners/run_deployment.py
+
+      - name: Compile Consolidated Master Report
+        run: python automation/runners/compile_master.py
+
+      - name: Upload Consolidated Master Excel Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: FoodRescue_Master_Test_Report
+          path: Test Results/Excel/master-report.xlsx
+
+      - name: Upload Selenium Detailed Excel Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: FoodRescue_Selenium_Test_Report
+          path: Test Results/Excel/selenium-report.xlsx
+
+      - name: Upload Appium Detailed Excel Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: FoodRescue_Appium_Test_Report
+          path: Test Results/Excel/appium-report.xlsx
+
+      - name: Upload Load performance Excel Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: FoodRescue_Load_Test_Report
+          path: Test Results/Excel/load-report.xlsx
+
+      - name: Upload Unit Test Excel Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: FoodRescue_Unit_Test_Report
+          path: Test Results/Excel/unit-report.xlsx
+
+      - name: Upload HTML Visual Dashboard Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: FoodRescue_HTML_Dashboard_Report
+          path: Test Results/HTML/execution-report.html
