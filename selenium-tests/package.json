@@ -1,0 +1,21 @@
+{
+  "name": "foodrescue-selenium-tests",
+  "version": "1.0.0",
+  "description": "Selenium E2E Test Suite for FoodRescue Web Application",
+  "scripts": {
+    "test": "mocha tests/**/*.js --timeout 30000 --reporter spec",
+    "test:login": "mocha tests/login-tests.js --timeout 30000 --reporter spec",
+    "test:report": "mocha tests/**/*.js --timeout 30000 --reporter mochawesome --reporter-options reportDir=reports,reportFilename=test-report",
+    "generate-excel": "node generate-report.js"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.16.0",
+    "chromedriver": "^119.0.1",
+    "exceljs": "^4.4.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "chai": "^4.3.10",
+    "mochawesome": "^7.1.3"
+  }
+}

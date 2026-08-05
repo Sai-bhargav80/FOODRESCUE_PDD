@@ -9,6 +9,7 @@ import * as z from 'zod';
 import { Mail, Lock, User as UserIcon, Phone, ArrowRight, Sparkles, AlertCircle, Eye, EyeOff, Leaf } from 'lucide-react';
 import { authAPI } from '@/lib/api';
 import PlateIntro from '@/components/PlateIntro';
+import PinInput from '@/components/PinInput';
 
 const signupSchema = z.object({
   fullName:    z.string().min(2, 'At least 2 characters'),
@@ -22,6 +23,8 @@ type SignupFormValues = z.infer<typeof signupSchema>;
 
 export default function SignupPage() {
   const router = useRouter();
+  const [step, setStep] = useState<1 | 2>(1); // 1: Info entry, 2: OTP Verification
+  const [formData, setFormData] = useState<SignupFormValues | null>(null);
   const [error, setError]         = useState('');
   const [success, setSuccess]     = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -35,23 +38,46 @@ export default function SignupPage() {
   const onSubmit = async (values: SignupFormValues) => {
     setError(''); setSuccess(''); setIsLoading(true);
     try {
-      const fullPhone = `${values.countryCode} ${values.phoneNumber}`;
-      const response  = await authAPI.signup({
-        email: values.email,
-        password: values.password,
-        fullName: values.fullName,
+      const response = await authAPI.sendSignupOTP(values.email);
+      if (response.data.success) {
+        setFormData(values);
+        setSuccess('✓ Verification code sent to your email.');
+        setTimeout(() => {
+          setSuccess('');
+          setStep(2);
+        }, 1200);
+      } else {
+        setError(response.data.message || 'Failed to send verification code.');
+      }
+    } catch (err: any) {
+      setError(err.response?.data?.detail || err.response?.data?.message || 'Connection error. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const onOtpVerifyAndCreate = async (otpCode: string) => {
+    if (!formData) return;
+    setError(''); setSuccess(''); setIsLoading(true);
+    try {
+      const fullPhone = `${formData.countryCode} ${formData.phoneNumber}`;
+      const response = await authAPI.signup({
+        email: formData.email,
+        password: formData.password,
+        fullName: formData.fullName,
         phoneNumber: fullPhone,
-        mpin: values.mpin
+        mpin: formData.mpin,
+        otp: otpCode
       });
       const { success: ok, message } = response.data;
       if (ok) {
-        setSuccess('Account created! Redirecting to login...');
+        setSuccess('✓ Account created! Redirecting to login...');
         setTimeout(() => router.push('/login'), 1800);
       } else {
         setError(message || 'Registration failed.');
       }
     } catch (err: any) {
-      setError(err.response?.data?.message || 'Connection error. Please try again.');
+      setError(err.response?.data?.detail || err.response?.data?.message || 'Verification failed. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -175,94 +201,123 @@ export default function SignupPage() {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                {/* Full Name */}
-                <div className="space-y-1.5">
-                  <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Full Name</label>
-                  <div className="relative">
-                    <UserIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
-                    <input type="text" placeholder="Vemani Sai" className="app-input" disabled={isLoading} {...register('fullName')} />
-                  </div>
-                  {errors.fullName && <p className="text-rose-400 text-[11px] font-mono">{errors.fullName.message}</p>}
-                </div>
-
-                {/* Email */}
-                <div className="space-y-1.5">
-                  <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Email</label>
-                  <div className="relative">
-                    <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
-                    <input type="email" placeholder="you@example.com" className="app-input" disabled={isLoading} {...register('email')} />
-                  </div>
-                  {errors.email && <p className="text-rose-400 text-[11px] font-mono">{errors.email.message}</p>}
-                </div>
-
-                {/* Phone Number */}
-                <div className="space-y-1.5">
-                  <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Phone Number</label>
-                  <div className="flex gap-2">
-                    <select className="app-input !pl-3 !w-auto shrink-0 text-xs" disabled={isLoading} {...register('countryCode')}>
-                      <option value="+91">+91 (IN)</option>
-                      <option value="+1">+1 (US)</option>
-                      <option value="+44">+44 (UK)</option>
-                    </select>
-                    <div className="relative flex-1">
-                      <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
-                      <input type="tel" placeholder="9876543210" className="app-input" maxLength={10} disabled={isLoading} {...register('phoneNumber')} />
+              {step === 1 ? (
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                  {/* Full Name */}
+                  <div className="space-y-1.5">
+                    <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Full Name</label>
+                    <div className="relative">
+                      <UserIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
+                      <input type="text" placeholder="Vemani Sai" className="app-input" disabled={isLoading} {...register('fullName')} />
                     </div>
+                    {errors.fullName && <p className="text-rose-400 text-[11px] font-mono">{errors.fullName.message}</p>}
                   </div>
-                  {errors.phoneNumber && <p className="text-rose-400 text-[11px] font-mono">{errors.phoneNumber.message}</p>}
-                </div>
 
-                {/* Password */}
-                <div className="space-y-1.5">
-                  <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Password</label>
-                  <div className="relative">
-                    <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
-                    <input
-                      type={showPassword ? 'text' : 'password'}
-                      placeholder="••••••••"
-                      className="app-input pr-10"
-                      disabled={isLoading}
-                      {...register('password')}
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(p => !p)}
-                      className="absolute right-3.5 top-1/2 -translate-y-1/2 text-dark-500 hover:text-white transition cursor-pointer"
-                    >
-                      {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
-                    </button>
+                  {/* Email */}
+                  <div className="space-y-1.5">
+                    <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Email</label>
+                    <div className="relative">
+                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
+                      <input type="email" placeholder="you@example.com" className="app-input" disabled={isLoading} {...register('email')} />
+                    </div>
+                    {errors.email && <p className="text-rose-400 text-[11px] font-mono">{errors.email.message}</p>}
                   </div>
-                  {errors.password && <p className="text-rose-400 text-[11px] font-mono">{errors.password.message}</p>}
-                </div>
 
-                {/* Security PIN */}
-                <div className="space-y-1.5">
-                  <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Security PIN</label>
-                  <div className="relative">
-                    <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
-                    <input
-                      type="password"
-                      inputMode="numeric"
-                      pattern="[0-9]*"
-                      maxLength={4}
-                      placeholder="••••"
-                      className="app-input"
-                      disabled={isLoading}
-                      {...register('mpin')}
-                    />
+                  {/* Phone Number */}
+                  <div className="space-y-1.5">
+                    <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Phone Number</label>
+                    <div className="flex gap-2">
+                      <select className="app-input !pl-3 !w-auto shrink-0 text-xs" disabled={isLoading} {...register('countryCode')}>
+                        <option value="+91">+91 (IN)</option>
+                        <option value="+1">+1 (US)</option>
+                        <option value="+44">+44 (UK)</option>
+                      </select>
+                      <div className="relative flex-1">
+                        <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
+                        <input type="tel" placeholder="9876543210" className="app-input" maxLength={10} disabled={isLoading} {...register('phoneNumber')} />
+                      </div>
+                    </div>
+                    {errors.phoneNumber && <p className="text-rose-400 text-[11px] font-mono">{errors.phoneNumber.message}</p>}
                   </div>
-                  {errors.mpin && <p className="text-rose-400 text-[11px] font-mono">{errors.mpin.message}</p>}
-                </div>
 
-                <button type="submit" disabled={isLoading} className="btn-primary mt-2">
-                  {isLoading ? (
-                    <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-dark-950/30 border-t-dark-950 rounded-full animate-spin" />Creating account...</span>
-                  ) : (
-                    <span className="flex items-center gap-2">Create Account <ArrowRight className="w-4 h-4" /></span>
-                  )}
-                </button>
-              </form>
+                  {/* Password */}
+                  <div className="space-y-1.5">
+                    <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Password</label>
+                    <div className="relative">
+                      <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
+                      <input
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder="••••••••"
+                        className="app-input pr-10"
+                        disabled={isLoading}
+                        {...register('password')}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowPassword(p => !p)}
+                        className="absolute right-3.5 top-1/2 -translate-y-1/2 text-dark-500 hover:text-white transition cursor-pointer"
+                      >
+                        {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                      </button>
+                    </div>
+                    {errors.password && <p className="text-rose-400 text-[11px] font-mono">{errors.password.message}</p>}
+                  </div>
+
+                  {/* Security PIN */}
+                  <div className="space-y-1.5">
+                    <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest">Security PIN</label>
+                    <div className="relative">
+                      <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
+                      <input
+                        type="password"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        maxLength={4}
+                        placeholder="••••"
+                        className="app-input"
+                        disabled={isLoading}
+                        {...register('mpin')}
+                      />
+                    </div>
+                    {errors.mpin && <p className="text-rose-400 text-[11px] font-mono">{errors.mpin.message}</p>}
+                  </div>
+
+                  <button type="submit" disabled={isLoading} className="btn-primary mt-2">
+                    {isLoading ? (
+                      <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-dark-950/30 border-t-dark-950 rounded-full animate-spin" />Sending code...</span>
+                    ) : (
+                      <span className="flex items-center gap-2">Create Account <ArrowRight className="w-4 h-4" /></span>
+                    )}
+                  </button>
+                </form>
+              ) : (
+                <PinInput
+                  length={6}
+                  title="Verify your Email Address"
+                  subtitle={`Enter the 6-digit OTP code sent to ${formData?.email}`}
+                  isLoading={isLoading}
+                  error={error}
+                  success={success}
+                  onComplete={onOtpVerifyAndCreate}
+                  onResend={async () => {
+                    if (!formData) return;
+                    setError(''); setSuccess(''); setIsLoading(true);
+                    try {
+                      const response = await authAPI.sendSignupOTP(formData.email);
+                      if (response.data.success) {
+                        setSuccess('✓ Verification code resent successfully.');
+                      } else {
+                        setError(response.data.message || 'Failed to resend code.');
+                      }
+                    } catch (err: any) {
+                      setError(err.response?.data?.detail || err.response?.data?.message || 'Failed to connect to the server.');
+                    } finally {
+                      setIsLoading(false);
+                    }
+                  }}
+                  onBack={() => setStep(1)}
+                />
+              )}
 
               <p className="text-center text-dark-500 text-sm pt-2 border-t border-white/5">
                 Already have an account?{' '}

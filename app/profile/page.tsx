@@ -8,6 +8,7 @@ import { userAPI, foodAPI, impactAPI } from '@/lib/api';
 import { MOCK_LISTINGS, MOCK_COMMUNITY_STATS } from '@/lib/mock-data';
 import { Leaf, Trophy, RefreshCw, Mail, Phone, User as UserIcon, Award, Heart, ShieldCheck, LogOut, MapPin, KeyRound, Loader } from 'lucide-react';
 import PinInput from '@/components/PinInput';
+import BottomNav from '@/components/BottomNav';
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -21,6 +22,14 @@ export default function ProfilePage() {
   const [pinError, setPinError] = useState('');
   const [pinSuccess, setPinSuccess] = useState('');
   const [pinLoading, setPinLoading] = useState(false);
+
+  // Profile edit state
+  const [isEditingProfile, setIsEditingProfile] = useState(false);
+  const [editName, setEditName] = useState('');
+  const [editPhone, setEditPhone] = useState('');
+  const [profileError, setProfileError] = useState('');
+  const [profileSuccess, setProfileSuccess] = useState('');
+  const [profileLoading, setProfileLoading] = useState(false);
 
   useEffect(() => {
     if (!authLoading && !sessionUser) router.push('/login');
@@ -119,10 +128,50 @@ export default function ProfilePage() {
     }
   };
 
+  const startEditingProfile = () => {
+    setEditName(user.fullName || '');
+    setEditPhone(user.phoneNumber || '');
+    setProfileError('');
+    setProfileSuccess('');
+    setIsEditingProfile(true);
+  };
+
+  const handleSaveProfile = async () => {
+    if (!editName.trim()) {
+      setProfileError('Name cannot be empty');
+      return;
+    }
+    setProfileError('');
+    setProfileSuccess('');
+    setProfileLoading(true);
+    try {
+      const res = await userAPI.updateUserProfile(user.id, {
+        fullName: editName.trim(),
+        phoneNumber: editPhone.trim(),
+      });
+      if (res.data.success) {
+        setProfileSuccess('✓ Profile updated successfully!');
+        if (res.data.user) {
+          updateUser(res.data.user);
+        }
+        setTimeout(() => {
+          setIsEditingProfile(false);
+          setProfileSuccess('');
+        }, 1500);
+      } else {
+        setProfileError(res.data.message || 'Failed to update profile');
+      }
+    } catch (err: any) {
+      setProfileError(err.response?.data?.message || err.response?.data?.detail || 'Error updating profile');
+    } finally {
+      setProfileLoading(false);
+    }
+  };
+
   const initials = sessionUser.fullName?.split(' ').map((n: string) => n[0]).join('').toUpperCase().slice(0, 2) || 'FR';
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-6 space-y-5 animate-fade-in">
+    <div className="max-w-2xl mx-auto px-4 py-6 pb-24 space-y-5 animate-fade-in">
 
       {/* Profile hero card */}
       <div className="app-card-glow p-5 relative overflow-hidden">
@@ -264,20 +313,116 @@ export default function ProfilePage() {
 
       {/* Account info */}
       <div className="app-card p-5 space-y-3">
-        <h2 className="text-white font-bold text-base">Account Info</h2>
-        {[
-          { icon: UserIcon, label: 'Name', value: sessionUser.fullName },
-          { icon: Mail,     label: 'Email', value: sessionUser.email },
-          { icon: Phone,    label: 'Phone', value: sessionUser.phoneNumber },
-        ].filter(f => f.value).map(f => (
-          <div key={f.label} className="flex items-center gap-3 p-3 bg-white/3 rounded-2xl border border-white/5">
-            <f.icon className="w-4 h-4 text-primary-400 flex-shrink-0" />
-            <div className="min-w-0">
-              <p className="text-[10px] text-dark-500 font-mono uppercase">{f.label}</p>
-              <p className="text-white text-sm font-medium truncate">{f.value}</p>
+        <div className="flex items-center justify-between">
+          <h2 className="text-white font-bold text-base">Account Info</h2>
+          {!isEditingProfile && (
+            <button
+              onClick={startEditingProfile}
+              className="text-xs text-primary-400 hover:text-primary-300 font-bold transition cursor-pointer"
+            >
+              Edit Profile
+            </button>
+          )}
+        </div>
+
+        {!isEditingProfile ? (
+          <div className="space-y-3">
+            {[
+              { icon: UserIcon, label: 'Name', value: user.fullName },
+              { icon: Mail,     label: 'Email', value: user.email },
+              { icon: Phone,    label: 'Phone', value: user.phoneNumber },
+            ].map(f => (
+              <div key={f.label} className="flex items-center gap-3 p-3 bg-white/3 rounded-2xl border border-white/5">
+                <f.icon className="w-4 h-4 text-primary-400 flex-shrink-0" />
+                <div className="min-w-0">
+                  <p className="text-[10px] text-dark-500 font-mono uppercase">{f.label}</p>
+                  <p className="text-white text-sm font-medium truncate">{f.value || 'Not set'}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="space-y-4 border-t border-white/5 pt-3">
+            {/* Name */}
+            <div className="space-y-1.5">
+              <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest block">
+                Full Name
+              </label>
+              <div className="relative">
+                <UserIcon className="absolute left-3 top-3.5 w-4 h-4 text-primary-400" />
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="w-full pl-10 pr-4 py-3 bg-dark-800/50 border border-white/10 rounded-xl text-white placeholder-dark-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-sm"
+                  value={editName}
+                  onChange={(e) => setEditName(e.target.value)}
+                  disabled={profileLoading}
+                />
+              </div>
+            </div>
+
+            {/* Phone */}
+            <div className="space-y-1.5">
+              <label className="text-[11px] font-semibold text-dark-400 uppercase tracking-widest block">
+                Phone Number
+              </label>
+              <div className="relative">
+                <Phone className="absolute left-3 top-3.5 w-4 h-4 text-primary-400" />
+                <input
+                  type="text"
+                  placeholder="Your Phone Number"
+                  className="w-full pl-10 pr-4 py-3 bg-dark-800/50 border border-white/10 rounded-xl text-white placeholder-dark-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-sm"
+                  value={editPhone}
+                  onChange={(e) => setEditPhone(e.target.value)}
+                  disabled={profileLoading}
+                />
+              </div>
+            </div>
+
+            {/* Feedback */}
+            {profileError && !profileSuccess && (
+              <p className="text-rose-400 text-xs font-mono text-center bg-rose-500/10 border border-rose-500/20 py-2 rounded-xl">
+                {profileError}
+              </p>
+            )}
+            {profileSuccess && (
+              <p className="text-emerald-400 text-xs font-mono text-center bg-emerald-500/10 border border-emerald-500/20 py-2 rounded-xl">
+                {profileSuccess}
+              </p>
+            )}
+
+            {/* Action buttons */}
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsEditingProfile(false);
+                  setProfileError('');
+                  setProfileSuccess('');
+                }}
+                disabled={profileLoading}
+                className="flex-1 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white text-xs font-semibold hover:bg-white/10 transition cursor-pointer"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleSaveProfile}
+                disabled={profileLoading || !editName.trim()}
+                className="flex-1 py-2.5 bg-gradient-primary text-dark-950 font-bold rounded-xl hover:shadow-lg transition flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {profileLoading ? (
+                  <>
+                    <Loader className="w-3.5 h-3.5 animate-spin" />
+                    Saving...
+                  </>
+                ) : (
+                  "Save Changes"
+                )}
+              </button>
             </div>
           </div>
-        ))}
+        )}
       </div>
 
       {/* Security PIN settings */}
@@ -387,6 +532,8 @@ export default function ProfilePage() {
           </div>
         )}
       </div>
+
+      <BottomNav />
     </div>
   );
 }

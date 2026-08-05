@@ -17,7 +17,7 @@ const emailSchema = z.object({
 const DEMO_EMAILS = ['donor@test.com', 'ngo@test.com', 'volunteer@test.com', 'vemanisai@gmail.com'];
 
 const otpSchema = z.object({
-  otp: z.string().length(4, 'Security PIN must be exactly 4 digits').regex(/^\d+$/, 'Security PIN must contain only numbers'),
+  otp: z.string().length(6, 'Verification code must be exactly 6 digits').regex(/^\d+$/, 'Verification code must contain only numbers'),
 });
 
 const resetSchema = z.object({
@@ -60,20 +60,33 @@ export default function ForgotPasswordPage() {
     setError('');
     setSuccess('');
     setIsLoading(true);
-    // Move directly to PIN input step
-    setEmail(values.email);
-    setStep(2);
-    setIsLoading(false);
+    try {
+      const response = await authAPI.forgotPassword(values.email);
+      if (response.data.success) {
+        setEmail(values.email);
+        setSuccess('✓ Verification code sent to your email.');
+        setTimeout(() => {
+          setSuccess('');
+          setStep(2);
+        }, 1000);
+      } else {
+        setError(response.data.message || 'Failed to send verification code.');
+      }
+    } catch (err: any) {
+      setError(err.response?.data?.detail || err.response?.data?.message || 'Failed to connect to the server.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const onPinVerify = async (values: OtpFormValues) => {
+  const onOtpVerify = async (values: OtpFormValues) => {
     setError('');
     setSuccess('');
     setIsLoading(true);
     const isDemo = DEMO_EMAILS.includes(email.toLowerCase());
-    if (isDemo && (values.otp === '1234' || values.otp === '0000')) {
+    if (isDemo && (values.otp === '123456' || values.otp === '000000')) {
       setOtpCode(values.otp);
-      setSuccess('✓ Security PIN verified successfully.');
+      setSuccess('✓ Verification successful.');
       setTimeout(() => {
         setSuccess('');
         setStep(3);
@@ -83,16 +96,16 @@ export default function ForgotPasswordPage() {
     }
 
     try {
-      const response = await authAPI.loginMpin({ email, mpin: values.otp });
+      const response = await authAPI.verifyOTP(email, values.otp);
       if (response.data.success) {
         setOtpCode(values.otp);
-        setSuccess('✓ Security PIN verified successfully.');
+        setSuccess('✓ Verification successful.');
         setTimeout(() => {
           setSuccess('');
           setStep(3);
         }, 1200);
       } else {
-        setError(response.data.message || 'Incorrect Security PIN. Please try again.');
+        setError(response.data.message || 'Invalid verification code. Please try again.');
       }
     } catch (err: any) {
       if (isDemo) {
@@ -103,7 +116,7 @@ export default function ForgotPasswordPage() {
           setStep(3);
         }, 1200);
       } else {
-        setError(err.response?.data?.message || err.response?.data?.detail || 'Incorrect PIN or server connection error.');
+        setError(err.response?.data?.message || err.response?.data?.detail || 'Invalid OTP or server connection error.');
       }
     } finally {
       setIsLoading(false);
@@ -115,10 +128,10 @@ export default function ForgotPasswordPage() {
     setSuccess('');
     setIsLoading(true);
     try {
-      const response = await authAPI.resetPasswordMpin({
+      const response = await authAPI.resetPassword({
         email,
-        mpin: otpCode,
-        newPassword: values.password,
+        otp: otpCode,
+        new_password: values.password,
       });
       if (response.data.success) {
         setSuccess('✓ Password reset successfully! Redirecting to login...');
@@ -202,7 +215,7 @@ export default function ForgotPasswordPage() {
                 </>
               ) : (
                 <>
-                  <span>Proceed to PIN Recovery</span>
+                  <span>Send Verification Code</span>
                   <ArrowRight className="w-4 h-4" />
                 </>
               )}
@@ -212,13 +225,30 @@ export default function ForgotPasswordPage() {
 
         {step === 2 && (
           <PinInput
-            length={4}
-            title="Enter the security pin to change the password"
-            subtitle={`Enter the 4-digit Security PIN for ${email}`}
+            length={6}
+            title="Enter the 6-digit OTP code sent to your email"
+            subtitle={`We sent a verification code to ${email}`}
             isLoading={isLoading}
             error={error}
             success={success}
-            onComplete={(pin) => onPinVerify({ otp: pin })}
+            onComplete={(otp) => onOtpVerify({ otp })}
+            onResend={async () => {
+              setError('');
+              setSuccess('');
+              setIsLoading(true);
+              try {
+                const response = await authAPI.forgotPassword(email);
+                if (response.data.success) {
+                  setSuccess('✓ Verification code resent successfully.');
+                } else {
+                  setError(response.data.message || 'Failed to resend code.');
+                }
+              } catch (err: any) {
+                setError(err.response?.data?.detail || err.response?.data?.message || 'Failed to connect to the server.');
+              } finally {
+                setIsLoading(false);
+              }
+            }}
             onBack={() => setStep(1)}
           />
         )}

@@ -11,8 +11,12 @@ export const authAPI = {
   login: (payload: { email: string; password: string }) =>
     apiClient.post('/login', payload),
 
+  /** POST /send-signup-otp → { success, message } */
+  sendSignupOTP: (email: string) =>
+    apiClient.post('/send-signup-otp', { email }),
+
   /** POST /signup → { success, message, user } */
-  signup: (payload: { email: string; password: string; fullName: string; phoneNumber?: string; mpin?: string }) =>
+  signup: (payload: { email: string; password: string; fullName: string; phoneNumber?: string; mpin?: string; otp: string }) =>
     apiClient.post('/signup', payload),
 
   /** POST /login-mpin → { success, message, user, token } */
@@ -82,6 +86,10 @@ export const userAPI = {
   /** POST /user/{user_id}/update-mpin → { success, message, user } */
   updateMpin: (userId: number, payload: { mpin: string; securityAnswer?: string }) =>
     apiClient.post(`/user/${userId}/update-mpin`, payload),
+
+  /** PUT /user/{id} → { success, message, user } */
+  updateUserProfile: (userId: number, payload: { fullName?: string; phoneNumber?: string }) =>
+    apiClient.put(`/user/${userId}`, payload),
 };
 
 // ── Notifications ──────────────────────────────

@@ -23,6 +23,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useAuth } from '@/lib/auth-context';
 import { foodAPI, claimAPI } from '@/lib/api';
 import { MOCK_LISTINGS } from '@/lib/mock-data';
+import BottomNav from '@/components/BottomNav';
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -1501,95 +1502,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Bottom Navigation Bar */}
-      <nav
-        style={{
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          background: 'rgba(5,9,20,0.97)',
-          borderTop: '1px solid rgba(255,255,255,0.08)',
-          backdropFilter: 'blur(20px)',
-          zIndex: 50,
-          display: 'flex',
-          height: 60,
-        }}
-      >
-        {(
-          [
-            {
-              id: 'listings' as TabId,
-              label: 'Listings',
-              icon: UtensilsCrossed,
-              emoji: '🍽️',
-            },
-            {
-              id: 'post' as TabId,
-              label: 'Post Food',
-              icon: Plus,
-              emoji: '➕',
-            },
-            {
-              id: 'activity' as TabId,
-              label: 'My Activity',
-              icon: ClipboardList,
-              emoji: '📋',
-            },
-          ] as const
-        ).map((tab) => {
-          const active = activeTab === tab.id;
-          return (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              style={{
-                flex: 1,
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: 3,
-                padding: '6px 0',
-                position: 'relative',
-                transition: 'all 0.15s ease',
-              }}
-            >
-              {active && (
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    width: 32,
-                    height: 2,
-                    background: '#22C55E',
-                    borderRadius: '0 0 4px 4px',
-                  }}
-                />
-              )}
-              <tab.icon
-                size={20}
-                color={active ? '#22C55E' : '#6b7280'}
-                strokeWidth={active ? 2.5 : 1.8}
-              />
-              <span
-                style={{
-                  fontSize: 10,
-                  fontWeight: active ? 700 : 500,
-                  color: active ? '#22C55E' : '#6b7280',
-                  letterSpacing: '0.02em',
-                }}
-              >
-                {tab.label}
-              </span>
-            </button>
-          );
-        })}
-      </nav>
+      <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
 
       {/* Global spin animation */}
       <style>{`
