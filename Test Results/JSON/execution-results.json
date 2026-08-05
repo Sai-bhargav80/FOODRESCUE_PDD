@@ -1,8 +1,8 @@
 {
-  "total": 470,
-  "passed": 470,
-  "failed": 0,
-  "pass_rate": 100.0,
-  "duration_seconds": 5.01,
-  "failed_details": []
+  "total": 1800,
+  "passed": 1786,
+  "failed": 9,
+  "skipped": 5,
+  "pass_rate": 99.22,
+  "duration_seconds": 206.77
 }

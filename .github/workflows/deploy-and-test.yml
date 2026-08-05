@@ -30,7 +30,7 @@ jobs:
       - name: Build Next.js Static Export
         run: npm run build
         env:
-          NEXT_PUBLIC_API_URL: https://mock-api.foodrescue.org
+          NEXT_PUBLIC_API_URL: https://puny-actors-sing.loca.lt
           NEXT_PUBLIC_BASE_PATH: /FOODRESCUE_PDD
 
       - name: Upload Build Artifact for Pages
